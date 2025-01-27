@@ -1,12 +1,190 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\silva\\OneDrive\\Ambiente de Trabalho\\AuctionSpringDotNet\\AuctionProject\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\silva\\OneDrive\\Ambiente de Trabalho\\AuctionSpringDotNet\\DotNet AuctionProject\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\silva\\OneDrive\\Ambiente de Trabalho\\AuctionSpringDotNet\\DotNet AuctionProject\\AuctionProject\\Migrations\\20250127152124_InitialCreateDb1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:AuctionProject\\Migrations\\20250127152124_InitialCreateDb1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C062C9F5-32E1-4DCD-92A3-06DA2BBF2C6B}|AuctionProject\\AuctionProject.csproj|c:\\users\\silva\\onedrive\\ambiente de trabalho\\auctionspringdotnet\\dotnet auctionproject\\auctionproject\\data\\auctioncontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C062C9F5-32E1-4DCD-92A3-06DA2BBF2C6B}|AuctionProject\\AuctionProject.csproj|solutionrelative:auctionproject\\data\\auctioncontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C062C9F5-32E1-4DCD-92A3-06DA2BBF2C6B}|AuctionProject\\AuctionProject.csproj|c:\\users\\silva\\onedrive\\ambiente de trabalho\\auctionspringdotnet\\dotnet auctionproject\\auctionproject\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C062C9F5-32E1-4DCD-92A3-06DA2BBF2C6B}|AuctionProject\\AuctionProject.csproj|solutionrelative:auctionproject\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C062C9F5-32E1-4DCD-92A3-06DA2BBF2C6B}|AuctionProject\\AuctionProject.csproj|c:\\users\\silva\\onedrive\\ambiente de trabalho\\auctionspringdotnet\\dotnet auctionproject\\auctionproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C062C9F5-32E1-4DCD-92A3-06DA2BBF2C6B}|AuctionProject\\AuctionProject.csproj|solutionrelative:auctionproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C062C9F5-32E1-4DCD-92A3-06DA2BBF2C6B}|AuctionProject\\AuctionProject.csproj|c:\\users\\silva\\onedrive\\ambiente de trabalho\\auctionspringdotnet\\dotnet auctionproject\\auctionproject\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C062C9F5-32E1-4DCD-92A3-06DA2BBF2C6B}|AuctionProject\\AuctionProject.csproj|solutionrelative:auctionproject\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C062C9F5-32E1-4DCD-92A3-06DA2BBF2C6B}|AuctionProject\\AuctionProject.csproj|c:\\users\\silva\\onedrive\\ambiente de trabalho\\auctionspringdotnet\\dotnet auctionproject\\auctionproject\\models\\auction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C062C9F5-32E1-4DCD-92A3-06DA2BBF2C6B}|AuctionProject\\AuctionProject.csproj|solutionrelative:auctionproject\\models\\auction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C062C9F5-32E1-4DCD-92A3-06DA2BBF2C6B}|AuctionProject\\AuctionProject.csproj|c:\\users\\silva\\onedrive\\ambiente de trabalho\\auctionspringdotnet\\dotnet auctionproject\\auctionproject\\models\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C062C9F5-32E1-4DCD-92A3-06DA2BBF2C6B}|AuctionProject\\AuctionProject.csproj|solutionrelative:auctionproject\\models\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\silva\\OneDrive\\Ambiente de Trabalho\\AuctionSpringDotNet\\DotNet AuctionProject\\AuctionProject\\Migrations\\20250127151100_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:AuctionProject\\Migrations\\20250127151100_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C062C9F5-32E1-4DCD-92A3-06DA2BBF2C6B}|AuctionProject\\AuctionProject.csproj|c:\\users\\silva\\onedrive\\ambiente de trabalho\\auctionspringdotnet\\dotnet auctionproject\\auctionproject\\auctionproject.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{C062C9F5-32E1-4DCD-92A3-06DA2BBF2C6B}|AuctionProject\\AuctionProject.csproj|solutionrelative:auctionproject\\auctionproject.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C062C9F5-32E1-4DCD-92A3-06DA2BBF2C6B}|AuctionProject\\AuctionProject.csproj|c:\\users\\silva\\onedrive\\ambiente de trabalho\\auctionspringdotnet\\dotnet auctionproject\\auctionproject\\models\\enums\\auctiontype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C062C9F5-32E1-4DCD-92A3-06DA2BBF2C6B}|AuctionProject\\AuctionProject.csproj|solutionrelative:auctionproject\\models\\enums\\auctiontype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "20250127152124_InitialCreateDb1.cs",
+              "DocumentMoniker": "C:\\Users\\silva\\OneDrive\\Ambiente de Trabalho\\AuctionSpringDotNet\\DotNet AuctionProject\\AuctionProject\\Migrations\\20250127152124_InitialCreateDb1.cs",
+              "RelativeDocumentMoniker": "AuctionProject\\Migrations\\20250127152124_InitialCreateDb1.cs",
+              "ToolTip": "C:\\Users\\silva\\OneDrive\\Ambiente de Trabalho\\AuctionSpringDotNet\\DotNet AuctionProject\\AuctionProject\\Migrations\\20250127152124_InitialCreateDb1.cs",
+              "RelativeToolTip": "AuctionProject\\Migrations\\20250127152124_InitialCreateDb1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T15:21:24.199Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "20250127151100_InitialCreate.cs",
+              "DocumentMoniker": "C:\\Users\\silva\\OneDrive\\Ambiente de Trabalho\\AuctionSpringDotNet\\DotNet AuctionProject\\AuctionProject\\Migrations\\20250127151100_InitialCreate.cs",
+              "RelativeDocumentMoniker": "AuctionProject\\Migrations\\20250127151100_InitialCreate.cs",
+              "ToolTip": "C:\\Users\\silva\\OneDrive\\Ambiente de Trabalho\\AuctionSpringDotNet\\DotNet AuctionProject\\AuctionProject\\Migrations\\20250127151100_InitialCreate.cs",
+              "RelativeToolTip": "AuctionProject\\Migrations\\20250127151100_InitialCreate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T15:11:00.301Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Auction.cs",
+              "DocumentMoniker": "C:\\Users\\silva\\OneDrive\\Ambiente de Trabalho\\AuctionSpringDotNet\\DotNet AuctionProject\\AuctionProject\\Models\\Auction.cs",
+              "RelativeDocumentMoniker": "AuctionProject\\Models\\Auction.cs",
+              "ToolTip": "C:\\Users\\silva\\OneDrive\\Ambiente de Trabalho\\AuctionSpringDotNet\\DotNet AuctionProject\\AuctionProject\\Models\\Auction.cs",
+              "RelativeToolTip": "AuctionProject\\Models\\Auction.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAQwBEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T14:10:09.052Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Item.cs",
+              "DocumentMoniker": "C:\\Users\\silva\\OneDrive\\Ambiente de Trabalho\\AuctionSpringDotNet\\DotNet AuctionProject\\AuctionProject\\Models\\Item.cs",
+              "RelativeDocumentMoniker": "AuctionProject\\Models\\Item.cs",
+              "ToolTip": "C:\\Users\\silva\\OneDrive\\Ambiente de Trabalho\\AuctionSpringDotNet\\DotNet AuctionProject\\AuctionProject\\Models\\Item.cs",
+              "RelativeToolTip": "AuctionProject\\Models\\Item.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwBUAAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T14:10:21.197Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Category.cs",
+              "DocumentMoniker": "C:\\Users\\silva\\OneDrive\\Ambiente de Trabalho\\AuctionSpringDotNet\\DotNet AuctionProject\\AuctionProject\\Models\\Category.cs",
+              "RelativeDocumentMoniker": "AuctionProject\\Models\\Category.cs",
+              "ToolTip": "C:\\Users\\silva\\OneDrive\\Ambiente de Trabalho\\AuctionSpringDotNet\\DotNet AuctionProject\\AuctionProject\\Models\\Category.cs",
+              "RelativeToolTip": "AuctionProject\\Models\\Category.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T14:48:40.308Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AuctionContext.cs",
+              "DocumentMoniker": "C:\\Users\\silva\\OneDrive\\Ambiente de Trabalho\\AuctionSpringDotNet\\DotNet AuctionProject\\AuctionProject\\Data\\AuctionContext.cs",
+              "RelativeDocumentMoniker": "AuctionProject\\Data\\AuctionContext.cs",
+              "ToolTip": "C:\\Users\\silva\\OneDrive\\Ambiente de Trabalho\\AuctionSpringDotNet\\DotNet AuctionProject\\AuctionProject\\Data\\AuctionContext.cs",
+              "RelativeToolTip": "AuctionProject\\Data\\AuctionContext.cs",
+              "ViewState": "AgIAAAgAAADgzMzMzIwrwBIAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T14:04:39.874Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\silva\\OneDrive\\Ambiente de Trabalho\\AuctionSpringDotNet\\DotNet AuctionProject\\AuctionProject\\Program.cs",
+              "RelativeDocumentMoniker": "AuctionProject\\Program.cs",
+              "ToolTip": "C:\\Users\\silva\\OneDrive\\Ambiente de Trabalho\\AuctionSpringDotNet\\DotNet AuctionProject\\AuctionProject\\Program.cs",
+              "RelativeToolTip": "AuctionProject\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T14:03:34.941Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AuctionProject.http",
+              "DocumentMoniker": "C:\\Users\\silva\\OneDrive\\Ambiente de Trabalho\\AuctionSpringDotNet\\DotNet AuctionProject\\AuctionProject\\AuctionProject.http",
+              "RelativeDocumentMoniker": "AuctionProject\\AuctionProject.http",
+              "ToolTip": "C:\\Users\\silva\\OneDrive\\Ambiente de Trabalho\\AuctionSpringDotNet\\DotNet AuctionProject\\AuctionProject\\AuctionProject.http",
+              "RelativeToolTip": "AuctionProject\\AuctionProject.http",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2025-01-27T14:03:31.393Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\silva\\OneDrive\\Ambiente de Trabalho\\AuctionSpringDotNet\\DotNet AuctionProject\\AuctionProject\\appsettings.json",
+              "RelativeDocumentMoniker": "AuctionProject\\appsettings.json",
+              "ToolTip": "C:\\Users\\silva\\OneDrive\\Ambiente de Trabalho\\AuctionSpringDotNet\\DotNet AuctionProject\\AuctionProject\\appsettings.json",
+              "RelativeToolTip": "AuctionProject\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-01-27T14:02:19.967Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AuctionType.cs",
+              "DocumentMoniker": "C:\\Users\\silva\\OneDrive\\Ambiente de Trabalho\\AuctionSpringDotNet\\DotNet AuctionProject\\AuctionProject\\Models\\Enums\\AuctionType.cs",
+              "RelativeDocumentMoniker": "AuctionProject\\Models\\Enums\\AuctionType.cs",
+              "ToolTip": "C:\\Users\\silva\\OneDrive\\Ambiente de Trabalho\\AuctionSpringDotNet\\DotNet AuctionProject\\AuctionProject\\Models\\Enums\\AuctionType.cs",
+              "RelativeToolTip": "AuctionProject\\Models\\Enums\\AuctionType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T14:28:33.162Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
