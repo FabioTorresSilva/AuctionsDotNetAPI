@@ -21,13 +21,13 @@ namespace AuctionProject.Models
         public decimal StartingPrice { get; set; }
 
         [Required]
-        public DateTime StartDate { get; set; } // When the auction starts
+        public DateTime StartDate { get; set; } 
 
         [Required]
-        public DateTime EndDate { get; set; } // When the auction ends
+        public DateTime EndDate { get; set; } 
 
         [MaxLength(50)]
-        public string Status { get; set; } = "Open"; // Auction status (Open, Closed, Canceled)
+        public string Status { get; set; } = "Open"; 
 
         [Required]
         public string ManagerId { get; set; } = null!;

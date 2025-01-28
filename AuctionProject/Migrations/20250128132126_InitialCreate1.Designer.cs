@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AuctionProject.Migrations
 {
     [DbContext(typeof(AuctionContext))]
-    [Migration("20250127151706_InitialCreateDb")]
-    partial class InitialCreateDb
+    [Migration("20250128132126_InitialCreate1")]
+    partial class InitialCreate1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -77,63 +77,6 @@ namespace AuctionProject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Electronics"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Furniture"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Antiques"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Name = "Art"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Name = "Collectibles"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Name = "Vehicles"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Name = "RealEstate"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Name = "Jewelry"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Name = "Fashion"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Name = "Books"
-                        },
-                        new
-                        {
-                            Id = 11,
-                            Name = "Other"
-                        });
                 });
 
             modelBuilder.Entity("AuctionProject.Models.Item", b =>
@@ -178,7 +121,7 @@ namespace AuctionProject.Migrations
 
                     b.HasIndex("ItemsId");
 
-                    b.ToTable("CategoryItem");
+                    b.ToTable("ItemCategories", (string)null);
                 });
 
             modelBuilder.Entity("CategoryItem", b =>

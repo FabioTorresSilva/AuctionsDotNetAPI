@@ -3,8 +3,6 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
-
 namespace AuctionProject.Migrations
 {
     /// <inheritdoc />
@@ -83,24 +81,6 @@ namespace AuctionProject.Migrations
                         principalTable: "Items",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.InsertData(
-                table: "Categories",
-                columns: new[] { "Id", "Name" },
-                values: new object[,]
-                {
-                    { 1, "Electronics" },
-                    { 2, "Furniture" },
-                    { 3, "Antiques" },
-                    { 4, "Art" },
-                    { 5, "Collectibles" },
-                    { 6, "Vehicles" },
-                    { 7, "RealEstate" },
-                    { 8, "Jewelry" },
-                    { 9, "Fashion" },
-                    { 10, "Books" },
-                    { 11, "Other" }
                 });
 
             migrationBuilder.CreateIndex(
