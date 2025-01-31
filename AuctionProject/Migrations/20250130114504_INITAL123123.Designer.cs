@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AuctionProject.Migrations
 {
     [DbContext(typeof(AuctionContext))]
-    [Migration("20250128120449_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20250130114504_INITAL123123")]
+    partial class INITAL123123
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -42,9 +42,11 @@ namespace AuctionProject.Migrations
                     b.Property<int>("ItemId")
                         .HasColumnType("int");
 
-                    b.Property<string>("ManagerId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("ManagerId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("SoldValue")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
@@ -52,12 +54,15 @@ namespace AuctionProject.Migrations
                     b.Property<decimal>("StartingPrice")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("Status")
-                        .IsRequired()
+                    b.Property<int>("Status")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ItemId");
+
+                    b.HasIndex("ManagerId");
 
                     b.ToTable("Auctions");
                 });
@@ -72,14 +77,15 @@ namespace AuctionProject.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("AuctionProject.Models.Item", b =>
+            modelBuilder.Entity("AuctionProject.Models.Manager", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -87,26 +93,14 @@ namespace AuctionProject.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Description")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
-
-                    b.Property<string>("ManagerId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("Url")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Items");
+                    b.ToTable("Managers");
                 });
 
             modelBuilder.Entity("CategoryItem", b =>
@@ -124,6 +118,59 @@ namespace AuctionProject.Migrations
                     b.ToTable("ItemCategories", (string)null);
                 });
 
+            modelBuilder.Entity("Item", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<int>("ManagerId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Url")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ManagerId");
+
+                    b.ToTable("Items");
+                });
+
+            modelBuilder.Entity("AuctionProject.Models.Auction", b =>
+                {
+                    b.HasOne("Item", "Item")
+                        .WithMany()
+                        .HasForeignKey("ItemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AuctionProject.Models.Manager", "Manager")
+                        .WithMany()
+                        .HasForeignKey("ManagerId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Item");
+
+                    b.Navigation("Manager");
+                });
+
             modelBuilder.Entity("CategoryItem", b =>
                 {
                     b.HasOne("AuctionProject.Models.Category", null)
@@ -132,11 +179,22 @@ namespace AuctionProject.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("AuctionProject.Models.Item", null)
+                    b.HasOne("Item", null)
                         .WithMany()
                         .HasForeignKey("ItemsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Item", b =>
+                {
+                    b.HasOne("AuctionProject.Models.Manager", "Manager")
+                        .WithMany()
+                        .HasForeignKey("ManagerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Manager");
                 });
 #pragma warning restore 612, 618
         }

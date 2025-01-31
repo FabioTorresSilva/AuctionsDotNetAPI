@@ -1,6 +1,7 @@
 ﻿using AuctionProject.Data;
 using AuctionProject.Models;
 using AuctionProject.Models.DTOs;
+using AuctionProject.Models.Enums;
 using AuctionProject.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,7 +18,16 @@ namespace AuctionProject.Services
 
         public async Task<ItemDTO> AddItemAsync(ItemDTO itemDTO)
         {
-            Console.WriteLine(itemDTO.CategoryIds);
+            if (string.IsNullOrWhiteSpace(itemDTO.Name))
+            {
+                throw new ArgumentException("Item name cannot be empty.");
+            }
+
+            if (string.IsNullOrWhiteSpace(itemDTO.Url))
+            {
+                throw new ArgumentException("Item URL cannot be empty.");
+            }
+
             var categories = await _context.Categories
                 .Where(c => itemDTO.CategoryIds.Contains(c.Id))
                 .ToListAsync();
@@ -33,7 +43,8 @@ namespace AuctionProject.Services
                 Url = itemDTO.Url,
                 Description = itemDTO.Description,
                 Categories = categories,
-                ManagerId = itemDTO.ManagerId
+                ManagerId = itemDTO.ManagerId,
+                Status = ItemStatus.Available
             };
 
             _context.Items.Add(item);
@@ -42,68 +53,127 @@ namespace AuctionProject.Services
             return Item.ItemToDTO(item);
         }
 
-
         public async Task<ItemDTO?> GetItemByIdAsync(int id)
-{
-    var item = await _context.Items
-        .Include(i => i.Categories)
-        .FirstOrDefaultAsync(i => i.Id == id);
+        {
+            if (id <= 0)
+            {
+                throw new ArgumentException("Invalid item ID.");
+            }
 
-    return item == null ? null : Item.ItemToDTO(item);
-}
+            var item = await _context.Items
+                .Include(i => i.Categories)
+                .FirstOrDefaultAsync(i => i.Id == id);
 
-public async Task<List<ItemDTO>> GetAllItemsAsync()
-{
-    var items = await _context.Items
-        .Include(i => i.Categories)
-        .ToListAsync();
+            return item == null ? null : Item.ItemToDTO(item);
+        }
 
-    return items.Select(Item.ItemToDTO).ToList();
-}
 
-public async Task<List<ItemDTO>> GetItemsByCategoryIdAsync(int categoryId)
-{
-    var items = await _context.Items
-        .Include(i => i.Categories)
-        .Where(i => i.Categories.Any(c => c.Id == categoryId))
-        .ToListAsync();
+        public async Task<List<ItemDTO>> GetAllItemsAsync()
+        {
+            var items = await _context.Items
+                .Include(i => i.Categories)
+                .ToListAsync();
 
-    return items.Select(Item.ItemToDTO).ToList();
-}
+            if (items == null || !items.Any())
+            {
+                throw new InvalidOperationException("No items found.");
+            }
 
-public async Task<ItemDTO?> UpdateItemAsync(int id, ItemDTO updatedItem)
-{
-    var item = await _context.Items
-        .Include(i => i.Categories)
-        .FirstOrDefaultAsync(i => i.Id == id);
+            return items.Select(Item.ItemToDTO).ToList();
+        }
 
-    if (item == null) return null;
+        public async Task<List<ItemDTO>> GetItemsByCategoryIdAsync(int categoryId)
+        {
+            if (categoryId <= 0)
+            {
+                throw new ArgumentException("Invalid category ID.");
+            }
 
-    var categories = await _context.Categories
-        .Where(c => updatedItem.CategoryIds.Contains(c.Id))
-        .ToListAsync();
+            var items = await _context.Items
+                .Include(i => i.Categories)
+                .Where(i => i.Categories.Any(c => c.Id == categoryId))
+                .ToListAsync();
 
-    item.Name = updatedItem.Name;
-    item.Url = updatedItem.Url;
-    item.Description = updatedItem.Description;
-    item.Categories = categories;
-    item.ManagerId = updatedItem.ManagerId;
+            if (items == null || !items.Any())
+            {
+                throw new InvalidOperationException("No items found for the specified category.");
+            }
 
-    await _context.SaveChangesAsync();
+            return items.Select(Item.ItemToDTO).ToList();
+        }
 
-    return Item.ItemToDTO(item);
-}
+        public async Task<ItemDTO?> UpdateItemAsync(int id, ItemDTO updatedItem)
+        {
+            if (id <= 0 || updatedItem == null)
+            {
+                throw new ArgumentException("Invalid input parameters.");
+            }
 
-public async Task<bool> DeleteItemAsync(int id)
-{
-    var item = await _context.Items.FindAsync(id);
+            var item = await _context.Items
+                .Include(i => i.Categories)
+                .FirstOrDefaultAsync(i => i.Id == id);
 
-    if (item == null) return false;
+            if (item == null) return null;
 
-    _context.Items.Remove(item);
-    await _context.SaveChangesAsync();
+            if (item.Status == ItemStatus.Sold)
+            {
+                throw new ArgumentException("You cant update a Sold item");
+            }
 
-    return true;
-}
+            var categories = await _context.Categories
+                .Where(c => updatedItem.CategoryIds.Contains(c.Id))
+                .ToListAsync();
+
+            item.Name = updatedItem.Name;
+            item.Url = updatedItem.Url;
+            item.Description = updatedItem.Description;
+            item.Categories = categories;
+            item.ManagerId = updatedItem.ManagerId;
+
+            await _context.SaveChangesAsync();
+
+            return Item.ItemToDTO(item);
+        }
+
+        public async Task<ItemDTO?> MarkItemAsSoldAsync(int id)
+        {
+            if (id <= 0)
+            {
+                throw new ArgumentException("Invalid item ID.");
+            }
+
+            var item = await _context.Items.FindAsync(id);
+
+            if (item == null) return null;
+
+            if (item.Status == ItemStatus.Sold)
+            {
+                throw new ArgumentException("You cant change a Sold status");
+            }
+
+            item.Status = ItemStatus.Sold;
+
+            await _context.SaveChangesAsync();
+
+            return Item.ItemToDTO(item);
+        }
+
+        public async Task<bool> DeleteItemAsync(int id)
+        {
+            if (id <= 0)
+            {
+                throw new ArgumentException("Invalid item ID.");
+            }
+
+            var item = await _context.Items.FindAsync(id);
+
+            if (item == null) return false;
+
+            _context.Items.Remove(item);
+            await _context.SaveChangesAsync();
+
+            return true;
+        }
+
     }
 }

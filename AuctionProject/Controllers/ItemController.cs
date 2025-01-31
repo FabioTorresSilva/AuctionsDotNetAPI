@@ -15,20 +15,30 @@ namespace AuctionProject.Controllers
             _itemService = itemService;
         }
 
-        // POST: api/Item
+        /// <summary>
+        /// Creates a new item.
+        /// </summary>
         [HttpPost]
         public async Task<ActionResult<ItemDTO>> AddItem(ItemDTO itemDTO)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Invalid model state.");
+            }
+
             try
             {
                 var createdItem = await _itemService.AddItemAsync(itemDTO);
 
-                // Return 201 Created with location header
                 return CreatedAtAction(nameof(GetItemById), new { id = createdItem.Id }, createdItem);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
 
@@ -36,6 +46,11 @@ namespace AuctionProject.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<ItemDTO>> GetItemById(int id)
         {
+            if (id <= 0)
+            {
+                return BadRequest("Invalid ID.");
+            }
+
             var item = await _itemService.GetItemByIdAsync(id);
 
             if (item == null)
@@ -43,45 +58,106 @@ namespace AuctionProject.Controllers
                 return NotFound();
             }
 
-            return item;
+            return Ok(item);
         }
 
-        // GET: api/Item
+        /// <summary>
+        /// Retrieves all items.
+        /// </summary>
         [HttpGet]
         public async Task<ActionResult<List<ItemDTO>>> GetAllItems()
         {
-            var items = await _itemService.GetAllItemsAsync();
-            return Ok(items);
+            try
+            {
+                var items = await _itemService.GetAllItemsAsync();
+
+                if (items == null || !items.Any())
+                {
+                    return NotFound("No items found.");
+                }
+
+                return Ok(items);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
 
-        // GET: api/Item/category/{categoryId}
+        /// <summary>
+        /// Retrieves items that belong to a specific category.
+        /// </summary>
         [HttpGet("category/{categoryId}")]
         public async Task<ActionResult<List<ItemDTO>>> GetItemsByCategoryId(int categoryId)
         {
-            var items = await _itemService.GetItemsByCategoryIdAsync(categoryId);
-
-            if (items == null || !items.Any())
+            if (categoryId <= 0)
             {
-                return NotFound();
+                return BadRequest("Invalid category ID.");
             }
 
-            return Ok(items);
+            try
+            {
+                var items = await _itemService.GetItemsByCategoryIdAsync(categoryId);
+
+                if (items == null || !items.Any())
+                {
+                    return NotFound($"No items found for category ID {categoryId}.");
+                }
+
+                return Ok(items);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
 
-        // PUT: api/Item/{id}
+        /// <summary>
+        /// Updates an existing item based on the provided ID and updated details.
+        /// </summary>
         [HttpPut("{id}")]
         public async Task<ActionResult<ItemDTO>> UpdateItem(int id, ItemDTO updatedItem)
         {
+            if (id <= 0 || updatedItem == null)
+            {
+                return BadRequest("Invalid parameters.");
+            }
+
             try
             {
                 var item = await _itemService.UpdateItemAsync(id, updatedItem);
 
                 if (item == null)
                 {
-                    return NotFound();
+                    return NotFound($"Item with ID {id} not found.");
                 }
 
                 return Ok(item);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
+
+        // PUT: api/Item/{id}/status
+        [HttpPut("{id}/status")]
+        public async Task<ActionResult<ItemDTO>> MarkItemAsSold(int id)
+        {
+            try
+            {
+                var updatedItem = await _itemService.MarkItemAsSoldAsync(id);
+
+                if (updatedItem == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(updatedItem);
             }
             catch (Exception ex)
             {
@@ -93,14 +169,19 @@ namespace AuctionProject.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteItem(int id)
         {
+            if (id <= 0)
+            {
+                return BadRequest("Invalid ID.");
+            }
+
             var deleted = await _itemService.DeleteItemAsync(id);
 
             if (!deleted)
             {
-                return NotFound();
+                return NotFound($"Item with ID {id} not found.");
             }
 
-            return NoContent(); // Return 204 No Content on successful deletion
+            return NoContent();
         }
     }
 }

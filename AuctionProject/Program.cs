@@ -2,6 +2,8 @@
 using AuctionProject.Data;
 using AuctionProject.Services;
 using AuctionProject.Services.Interfaces;
+using AuctionProject.Services.Stats.Interfaces;
+using AuctionProject.Services.Stats;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +18,13 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IItemService, ItemService>();
+builder.Services.AddScoped<IAuctionService, AuctionService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IManagerService, ManagerService>();
+builder.Services.AddScoped<IAuctionStatusUpdateService, AuctionStatusUpdateService>();
+builder.Services.AddScoped<IAuctionStats, AuctionStatsService>();
+builder.Services.AddScoped<ICategoryStats, CategoryStatsService>();
+builder.Services.AddScoped<IMainStats, MainStatsService>();
 
 var app = builder.Build();
 
