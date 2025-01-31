@@ -34,6 +34,11 @@ namespace AuctionProject.Services
                 throw new ArgumentException("Invalid Item ID provided.");
             }
 
+            var existingAuction = await _context.Auctions
+                .Where(a => a.ItemId == auctionDTO.ItemId &&
+                    (a.Status == AuctionStatus.Pending || a.Status == AuctionStatus.Open))
+                .FirstOrDefaultAsync();
+
             if (auctionDTO.StartDate < DateTime.Now)
             {
                 throw new ArgumentException("Start date cannot be in the past.");
