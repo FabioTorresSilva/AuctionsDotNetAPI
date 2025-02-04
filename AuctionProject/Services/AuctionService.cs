@@ -300,7 +300,7 @@ namespace AuctionProject.Services
             }
         }
 
-        public async Task<List<AuctionDTO>> GetOpenAuctionsAsync()
+        public async Task<List<AuctionDTO>> GetOpenAuctions()
         {
             var openAuctions = await _context.Auctions
                 .Where(a => a.Status == AuctionStatus.Open)
