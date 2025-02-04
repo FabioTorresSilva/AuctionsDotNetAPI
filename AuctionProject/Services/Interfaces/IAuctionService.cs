@@ -46,5 +46,7 @@ namespace AuctionProject.Services.Interfaces
         /// Updates the status of an auction and records its sold value.
         /// </summary>
         Task<AuctionDTO?> UpdateAuctionStatusAsync(int id, decimal soldValue);
+
+        Task <List<AuctionDTO>> GetOpenAuctions();
     }
 }

@@ -299,5 +299,14 @@ namespace AuctionProject.Services
                 throw new Exception("An unexpected error occurred while deleting the auction.", ex);
             }
         }
+
+        public async Task<List<AuctionDTO>> GetOpenAuctionsAsync()
+        {
+            var openAuctions = await _context.Auctions
+                .Where(a => a.Status == AuctionStatus.Open)
+                .ToListAsync();
+
+            return openAuctions.Select(Auction.AuctionToDTO).ToList();
+        }
     }
 }

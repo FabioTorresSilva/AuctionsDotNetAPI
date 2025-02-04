@@ -210,5 +210,12 @@ namespace AuctionProject.Controllers
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
+
+        [HttpGet("open")]
+        public async Task<ActionResult<List<AuctionDTO>>> GetOpenAuctions()
+        {
+            var openAuctions = await _auctionService.GetOpenAuctions();
+            return Ok(openAuctions);
+        }
     }
 }
